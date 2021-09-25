@@ -11,6 +11,8 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var textFieldOutlet: UITextField!
+    @IBOutlet weak var newScreenInfoLabelOutlet: UILabel!
+    
     
 
     override func viewDidLoad() {
@@ -23,11 +25,24 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "toLastVC", sender: nil)
     }
     
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nvc = segue.destination as! FifthViewController
-        nvc.text = textFieldOutlet.text!
+        //print("1")
+        if segue.identifier == "toLastVC" {
+            let nvc = segue.destination as! FifthViewController
+            nvc.incoming = textFieldOutlet.text!
+            //print("2")
+        }
+        else{}
     }
     
+    
+    @IBAction func unwind(_ seg : UIStoryboardSegue){
+        let svc = seg.source as! FifthViewController
+        newScreenInfoLabelOutlet.text = svc.secondTextFieldOutlet.text!
+        
+    }
+    
+    
 }
+
 

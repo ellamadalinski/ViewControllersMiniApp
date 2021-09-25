@@ -9,14 +9,19 @@ import UIKit
 
 class FifthViewController: UIViewController {
 
-    var text : String!
+    var incoming : String!
+    @IBOutlet weak var secondTextFieldOutlet: UITextField!
+    
+    
+    
+    @IBOutlet weak var textLabelOutlet: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        textLabelOutlet.text = incoming
         
     }
-    
     
     
 
